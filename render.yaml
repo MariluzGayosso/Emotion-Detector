@@ -1,11 +1,7 @@
 services:
   - type: web
-    name: Emotion-Detector-1
+    name: emotion-detector
     env: python
-    pythonVersion: 3.10.12
-    buildCommand: |
-      pip install --upgrade pip setuptools wheel
-      pip install -r requirements.txt
-    startCommand: gunicorn app:app
-    branch: main
-    region: oregon
+    pythonVersion: 3.10
+    buildCommand: pip install --upgrade pip setuptools wheel && pip install -r requirements.txt
+    startCommand: streamlit run app.py
