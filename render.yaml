@@ -1,10 +1,11 @@
 services:
   - type: web
-    name: emotion-detector
-    runtime: python
-    buildCommand: "pip install -r requirements.txt"
-    startCommand: "streamlit run app.py --server.port $PORT --server.enableCORS false"
-    envVars:
-      - key: PYTHON_VERSION
-        value: 3.10.12
-    plan: free
+    name: Emotion-Detector-1
+    env: python
+    pythonVersion: 3.10.12
+    buildCommand: |
+      pip install --upgrade pip setuptools wheel
+      pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    branch: main
+    region: oregon
