@@ -4,3 +4,7 @@ opencv-python-headless
 tensorflow
 keras
 pillow
+h5py
+numpy
+matplotlib
+
